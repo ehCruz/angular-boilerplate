@@ -1,0 +1,19 @@
+<h2>{{ !isEditable ? 'Add' : 'Edit' }} Post</h2>
+<div class="card card-body mb-3">
+    <form>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="currentPost.title" #title>
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            <input type="text" class="form-control" name="body" [(ngModel)]="currentPost.body" #body>
+        </div>
+        <input type="hidden" name="postId" [(ngModel)]="currentPost.id">
+
+        <button *ngIf="!isEditable" (click)="addNewPost(title.value, body.value)" class="btn btn-dark btn-block">Add
+            Post</button>
+        <button *ngIf="isEditable" (click)="updatePost(currentPost)" class="btn btn-warning btn-block">Update
+            Post</button>
+    </form>
+</div>

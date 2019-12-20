@@ -1,0 +1,10 @@
+<div *ngIf="showUsers">
+    <h2>User List</h2>
+    <ul *ngIf="users?.length > 0; else elseTemplate" class="p-0">
+        <app-user *ngFor="let user of users" [user]="user"></app-user>
+    </ul>
+</div>
+
+<ng-template #elseTemplate>
+    <h4>No users found</h4>
+</ng-template>
